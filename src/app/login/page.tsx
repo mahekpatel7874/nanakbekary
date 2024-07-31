@@ -1,14 +1,14 @@
 "use client";
 import CustomInput from "../../components/common/customInput";
 import Link from "next/link";
-import { HOME_ROUTE, LOGIN_ROUTE, SIGNUP_ROUTE } from "@/constant/routes";
+import { FORGOTPSW_ROUTE, HOME_ROUTE, SIGNUP_ROUTE } from "@/constant/routes";
 import CustomButton from "@/components/common/customButton";
 import { auth } from "@/services/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function Home() {
+export default function LogIn() {
   const navigate = useRouter();
   const defaultEmailPass = { email: "", password: "" };
   const [userEmailPass, setUserEmailPass] = useState(defaultEmailPass);
@@ -21,7 +21,6 @@ export default function Home() {
   };
 
   const handleLogin = () => {
-    console.log("LogIn Clicked", userEmailPass);
     signInWithEmailAndPassword(
       auth,
       userEmailPass.email,
@@ -64,7 +63,7 @@ export default function Home() {
             value={userEmailPass.password}
           />
           <div className={"text-[#EA4335] text-right"}>
-            <a href={"#"}>Forgot password ?</a>
+            <a href={FORGOTPSW_ROUTE}>Forgot password ?</a>
           </div>
         </div>
         <div className={"flex flex-col gap-3"}>

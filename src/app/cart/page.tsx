@@ -20,14 +20,13 @@ export default function Cart() {
       }
     >
       <div className={"p-4 w-full flex justify-between items-center "}>
-        <Link href={HOME_ROUTE}>
-          <button
-            className={
-              "bg-[#F5F6FA] rounded-full p-2 w-[50px] h-[50px] flex justify-center items-center"
-            }
-          >
-            <Back />
-          </button>
+        <Link
+          href={HOME_ROUTE}
+          className={
+            "bg-[#F5F6FA] rounded-full p-2 w-[50px] h-[50px] flex justify-center items-center"
+          }
+        >
+          <Back />
         </Link>
         <div className={"font-bold text-2xl w-full text-center"}>Cart</div>
       </div>

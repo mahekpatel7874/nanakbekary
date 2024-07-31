@@ -29,14 +29,13 @@ export default function productDetails() {
               "absolute top-4 px-4 w-full flex justify-between items-center"
             }
           >
-            <Link href={HOME_ROUTE}>
-              <button
-                className={
-                  "bg-[#fff] rounded-full p-2 w-[50px] h-[50px] flex justify-center items-center"
-                }
-              >
-                <Back />
-              </button>
+            <Link
+              href={HOME_ROUTE}
+              className={
+                "bg-[#fff] rounded-full p-2 w-[50px] h-[50px] flex justify-center items-center"
+              }
+            >
+              <Back />
             </Link>
             <Link href={"#"}>
               <button

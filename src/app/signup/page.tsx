@@ -58,10 +58,13 @@ export default function SignUp() {
       <div className={"w-full md:w-1/3 h-full flex flex-col justify-between"}>
         <div>
           <div className={"pt-4 pl-4"}>
-            <Link href={LOGIN_ROUTE}>
-              <button className={"bg-[#F5F6FA] rounded-full p-2"}>
-                <Back />
-              </button>
+            <Link
+              href={LOGIN_ROUTE}
+              className={
+                "bg-[#F5F6FA] rounded-full p-2 w-[50px] h-[50px] flex justify-center items-center"
+              }
+            >
+              <Back />
             </Link>
           </div>
           <div className={"pt-20 text-center"}>

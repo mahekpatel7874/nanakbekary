@@ -5,6 +5,7 @@ export default function CustomInput({
   name,
   onChange,
   value,
+  readonly = false,
 }) {
   return (
     <div className={"w-full"}>
@@ -19,6 +20,7 @@ export default function CustomInput({
         onChange={onChange}
         value={value}
         required
+        readOnly={readonly}
       />
     </div>
   );
