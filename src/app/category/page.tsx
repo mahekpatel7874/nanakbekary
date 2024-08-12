@@ -1,5 +1,3 @@
-import productPage from "../products/page";
-export default function Category(params) {
-  console.log("main Details");
-  return <productPage catId={params} />;
+export default function Demo() {
+  return <div>Demo</div>;
 }

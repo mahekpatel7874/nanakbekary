@@ -4,12 +4,64 @@ import Image from "next/image";
 import Back from "@/components/common/icons/back";
 import Cart from "@/app/cart/page";
 import CustomButton from "@/components/common/customButton";
-import { HOME_ROUTE } from "@/constant/routes";
+import { CART_ROUTE, HOME_ROUTE } from "@/constant/routes";
+import { doc, getDoc } from "firebase/firestore/lite";
+import { db } from "@/services/firebase";
+import { useEffect, useState } from "react";
 
-export default function productDetails() {
+export default function ProductDetails({ prId }) {
+  // console.log("prId : ", prId.params.homeId);
+  const [product, setProduct] = useState<any>({});
+
+  const getProductById = async () => {
+    const productById = doc(db, "products", prId?.params?.homeId);
+    if (productById) {
+      await getDoc(productById)
+        .then(async (p) => {
+          const prod: object = p.data();
+          setProduct(prod);
+          if (prod.category) {
+            const categoryById = doc(db, "categories", `${prod.category}`);
+            await getDoc(categoryById)
+              .then((c) => {
+                const cat = c.data();
+                console.log("category : ", cat);
+              })
+              .catch((e) => console.log("category error : ", e));
+          }
+        })
+        .catch((e) => console.log("e - - - - - - - >", e));
+      // try {
+      //   const product = await getDoc(productById);
+      //   let prod: object = product.data();
+      //   setProduct(prod);
+      //   console.log("HERe---->", typeof prod);
+      //   console.log("product  == = = >", product.data());
+      //   if (prod.category) {
+      //     const categoryById = doc(db, "categories", prod.category);
+      //     try {
+      //       const category = await getDoc(categoryById);
+      //       let cat = category.data();
+      //       console.log("category : ", cat);
+      //     } catch (e) {
+      //       console.log("category error : ", e);
+      //     }
+      //   }
+      // } catch (e) {
+      //   console.log("error : ", e);
+      // }
+    }
+  };
   const handleAddToCart = () => {
     console.log("add to cart clicked");
   };
+
+  useEffect(() => {
+    getProductById();
+  }, []);
+
+  // console.log("product : ", product);
+
   return (
     <div
       className={
@@ -37,7 +89,7 @@ export default function productDetails() {
             >
               <Back />
             </Link>
-            <Link href={"#"}>
+            <Link href={CART_ROUTE}>
               <button
                 className={
                   "bg-[#fff] rounded-full p-2 w-[50px] h-[50px] flex justify-center items-center"
@@ -56,19 +108,22 @@ export default function productDetails() {
         <div className={"px-6 flex justify-between items-center"}>
           <div>
             <div className={"text-base text-[#8F959E]"}>
-              Men's Printed Pullover Hoodie
+              {product?.category}
             </div>
-            <div className={"text-lg font-medium"}>Nike club Fleece</div>
+            <div className={"text-lg font-medium"}>{product?.name}</div>
           </div>
           <div>
             <div className={"text-base text-[#8F959E]"}>Price</div>
-            <div className={"text-lg font-medium"}>$99</div>
+            <div className={"text-lg font-medium"}>
+              {" "}
+              &#x20b9;&nbsp;{product?.price}
+            </div>
           </div>
         </div>
         <div className={"px-6 text-[#8F959E]"}>
-          The Nike Throwback Pullover Hoodie is made from premium French terry
-          fabric that blends a performance feel with{" "}
-          <span className={"font-bold text-[#000]"}>Read More..</span>
+          {product?.qty}&nbsp;
+          {product?.qtytype}
+          <span className={"font-bold text-[#000]"}>&nbsp;Read More..</span>
         </div>
       </div>
       <CustomButton label={"Add to Cart"} onClick={handleAddToCart} />

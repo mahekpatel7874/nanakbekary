@@ -13,7 +13,6 @@ import { useRouter } from "next/navigation";
 import CustomFooter from "@/components/common/customFooter";
 import { db } from "@/services/firebase";
 import { collection, getDoc, getDocs, doc } from "firebase/firestore/lite";
-// import { getDoc } from "@firebase/firestore";
 
 export default function Home() {
   const navigate = useRouter();
@@ -30,20 +29,13 @@ export default function Home() {
     setAddWishlist(!addWishlist);
   };
 
-  const handleSelectedProduct = () => {
-    navigate.push(PRODUCTDETAILS_ROUTE);
+  const handleSelectedProduct = (prId) => {
+    console.log("prId : ", prId);
+    // navigate.push(PRODUCTDETAILS_ROUTE);
+    navigate.push("home/" + prId);
   };
   const handleSelectedCategoryProduct = async (id) => {
-    console.log("id : ", id);
-    // const categoryById = doc(db, "categories", id);
-    // try {
-    //   const category = await getDoc(categoryById);
-    //   console.log("category : ", category.data());
-    // } catch (e) {
-    //   console.log(e);
-    // }
-
-    navigate.push(`${CATEGORYWISE_ROUTE + "/" + id}`);
+    navigate.push("category/" + id + "/products");
   };
 
   const getAllCategories = async () => {
@@ -147,7 +139,10 @@ export default function Home() {
         <div className={"grid grid-cols-2 gap-3"}>
           {products.map((product, index) => {
             return (
-              <div onClick={handleSelectedProduct} key={index}>
+              <div
+                onClick={() => handleSelectedProduct(product.prId)}
+                key={index}
+              >
                 <div className={"flex justify-center items-center w-full"}>
                   <div className={"relative"}>
                     <Image
@@ -168,8 +163,8 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div className={"text-sm font-medium px-1"}>{product.name}</div>
-                <div className={"font-bold px-1"}>
+                <div className={"text-sm font-medium px-4"}>{product.name}</div>
+                <div className={"font-bold px-4"}>
                   &#x20b9;&nbsp;{product.price}
                 </div>
               </div>

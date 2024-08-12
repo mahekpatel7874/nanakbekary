@@ -3,7 +3,7 @@ import Image from "next/image";
 import Back from "@/components/common/icons/back";
 import User from "@/components/common/icons/user";
 import React from "react";
-import { HOME_ROUTE } from "@/constant/routes";
+import { HOME_ROUTE, ORDERDETAILS_ROUTE } from "@/constant/routes";
 
 export default function OrderList() {
   return (
@@ -24,8 +24,9 @@ export default function OrderList() {
         <div className={"font-bold text-2xl w-full text-center"}>Order</div>
       </div>
       <div className={"p-4 overflow-y-scroll"}>
-        <div
-          className={"grid gap-3 p-4 my-4 rounded-2xl "}
+        <Link
+          href={ORDERDETAILS_ROUTE}
+          className={"grid gap-3 p-4 my-4 rounded-2xl"}
           style={{ boxShadow: "2px 4px 8px 2px rgb(0 0 0 / 0.09)" }}
         >
           <div>
@@ -35,9 +36,10 @@ export default function OrderList() {
               <div className={"text-[#8F959E]"}> $500</div>
             </div>
           </div>
-        </div>
-        <div
-          className={"grid gap-3 p-4 my-4 rounded-2xl overflow-y-scroll"}
+        </Link>
+        <Link
+          href={ORDERDETAILS_ROUTE}
+          className={"grid gap-3 p-4 my-4 rounded-2xl"}
           style={{ boxShadow: "2px 4px 8px 2px rgb(0 0 0 / 0.09)" }}
         >
           <div>
@@ -47,9 +49,10 @@ export default function OrderList() {
               <div className={"text-[#8F959E]"}> $500</div>
             </div>
           </div>
-        </div>
-        <div
-          className={"grid gap-3 p-4 my-4 rounded-2xl overflow-y-scroll"}
+        </Link>
+        <Link
+          href={ORDERDETAILS_ROUTE}
+          className={"grid gap-3 p-4 my-4 rounded-2xl"}
           style={{ boxShadow: "2px 4px 8px 2px rgb(0 0 0 / 0.09)" }}
         >
           <div>
@@ -59,9 +62,10 @@ export default function OrderList() {
               <div className={"text-[#8F959E]"}> $500</div>
             </div>
           </div>
-        </div>
-        <div
-          className={"grid gap-3 p-4 my-4 rounded-2xl overflow-y-scroll"}
+        </Link>
+        <Link
+          href={ORDERDETAILS_ROUTE}
+          className={"grid gap-3 p-4 my-4 rounded-2xl"}
           style={{ boxShadow: "2px 4px 8px 2px rgb(0 0 0 / 0.09)" }}
         >
           <div>
@@ -71,9 +75,10 @@ export default function OrderList() {
               <div className={"text-[#8F959E]"}> $500</div>
             </div>
           </div>
-        </div>
-        <div
-          className={"grid gap-3 p-4 my-4 rounded-2xl overflow-y-scroll"}
+        </Link>
+        <Link
+          href={ORDERDETAILS_ROUTE}
+          className={"grid gap-3 p-4 my-4 rounded-2xl"}
           style={{ boxShadow: "2px 4px 8px 2px rgb(0 0 0 / 0.09)" }}
         >
           <div>
@@ -83,9 +88,10 @@ export default function OrderList() {
               <div className={"text-[#8F959E]"}> $500</div>
             </div>
           </div>
-        </div>
-        <div
-          className={"grid gap-3 p-4 my-4 rounded-2xl overflow-y-scroll"}
+        </Link>
+        <Link
+          href={ORDERDETAILS_ROUTE}
+          className={"grid gap-3 p-4 my-4 rounded-2xl"}
           style={{ boxShadow: "2px 4px 8px 2px rgb(0 0 0 / 0.09)" }}
         >
           <div>
@@ -95,9 +101,10 @@ export default function OrderList() {
               <div className={"text-[#8F959E]"}> $500</div>
             </div>
           </div>
-        </div>
-        <div
-          className={"grid gap-3 p-4 my-4 rounded-2xl overflow-y-scroll"}
+        </Link>
+        <Link
+          href={ORDERDETAILS_ROUTE}
+          className={"grid gap-3 p-4 my-4 rounded-2xl"}
           style={{ boxShadow: "2px 4px 8px 2px rgb(0 0 0 / 0.09)" }}
         >
           <div>
@@ -107,9 +114,10 @@ export default function OrderList() {
               <div className={"text-[#8F959E]"}> $500</div>
             </div>
           </div>
-        </div>
-        <div
-          className={"grid gap-3 p-4 my-4 rounded-2xl overflow-y-scroll"}
+        </Link>
+        <Link
+          href={ORDERDETAILS_ROUTE}
+          className={"grid gap-3 p-4 my-4 rounded-2xl"}
           style={{ boxShadow: "2px 4px 8px 2px rgb(0 0 0 / 0.09)" }}
         >
           <div>
@@ -119,9 +127,10 @@ export default function OrderList() {
               <div className={"text-[#8F959E]"}> $500</div>
             </div>
           </div>
-        </div>
-        <div
-          className={"grid gap-3 p-4 my-4 rounded-2xl overflow-y-scroll"}
+        </Link>
+        <Link
+          href={ORDERDETAILS_ROUTE}
+          className={"grid gap-3 p-4 my-4 rounded-2xl"}
           style={{ boxShadow: "2px 4px 8px 2px rgb(0 0 0 / 0.09)" }}
         >
           <div>
@@ -131,9 +140,10 @@ export default function OrderList() {
               <div className={"text-[#8F959E]"}> $500</div>
             </div>
           </div>
-        </div>
-        <div
-          className={"grid gap-3 p-4 my-4 rounded-2xl overflow-y-scroll"}
+        </Link>
+        <Link
+          href={ORDERDETAILS_ROUTE}
+          className={"grid gap-3 p-4 my-4 rounded-2xl"}
           style={{ boxShadow: "2px 4px 8px 2px rgb(0 0 0 / 0.09)" }}
         >
           <div>
@@ -143,9 +153,10 @@ export default function OrderList() {
               <div className={"text-[#8F959E]"}> $500</div>
             </div>
           </div>
-        </div>
-        <div
-          className={"grid gap-3 p-4 my-4 rounded-2xl overflow-y-scroll"}
+        </Link>
+        <Link
+          href={ORDERDETAILS_ROUTE}
+          className={"grid gap-3 p-4 my-4 rounded-2xl"}
           style={{ boxShadow: "2px 4px 8px 2px rgb(0 0 0 / 0.09)" }}
         >
           <div>
@@ -155,9 +166,10 @@ export default function OrderList() {
               <div className={"text-[#8F959E]"}> $500</div>
             </div>
           </div>
-        </div>
-        <div
-          className={"grid gap-3 p-4 my-4 rounded-2xl overflow-y-scroll"}
+        </Link>
+        <Link
+          href={ORDERDETAILS_ROUTE}
+          className={"grid gap-3 p-4 my-4 rounded-2xl"}
           style={{ boxShadow: "2px 4px 8px 2px rgb(0 0 0 / 0.09)" }}
         >
           <div>
@@ -167,7 +179,7 @@ export default function OrderList() {
               <div className={"text-[#8F959E]"}> $500</div>
             </div>
           </div>
-        </div>
+        </Link>
       </div>
     </div>
   );
